@@ -26,7 +26,7 @@ class SubSeeder extends Seeder
                 'id_kriteria' => '1',
             ],
             [
-                'subkriteria' => '2000000 - 3000000',
+                'subkriteria' => '> 2000000 - 3000000',
                 'nilai' => '3',
                 'id_kriteria' => '1',
             ],
@@ -76,22 +76,22 @@ class SubSeeder extends Seeder
                 'id_kriteria' => '3',
             ],
             [
-                'subkriteria' => 'Tidak memiliki kendaraan',
+                'subkriteria' => 'Tidak punya rumah/tinggal menumpang/Kost, tanpa kendaraan',
                 'nilai' => '5',
                 'id_kriteria' => '4',
             ],
             [
-                'subkriteria' => 'Motor',
+                'subkriteria' => 'Hanya rumah pribadi + 1 motor',
                 'nilai' => '4',
                 'id_kriteria' => '4',
             ],
             [
-                'subkriteria' => 'Mobil',
+                'subkriteria' => 'Rumah pribadi + 1 mobil / motor ≥ 2',
                 'nilai' => '3',
                 'id_kriteria' => '4',
             ],
             [
-                'subkriteria' => 'Rumah',
+                'subkriteria' => 'Rumah pribadi + mobil lebih dari 1',
                 'nilai' => '2',
                 'id_kriteria' => '4',
             ],

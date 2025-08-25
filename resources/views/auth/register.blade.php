@@ -1,11 +1,11 @@
 <x-guest-layout>
     <x-auth-card>
         <div class="flex items-center justify-center mb-4">
-            <img src="{{ asset('images/logo-sma.png') }}" style="height: 80px" class="h-8 w-auto" alt="">
+            <img src="{{ asset('images/lg.png') }}" style="height: 80px" class="h-8 w-auto" alt="">
         </div>
         <div class="text-center mb-4">
             <h1><b>DAFTAR</b></h1>
-            <p>Daftar Akun Sistem Pendukung Kepututsan Penerimaan Beasiswa Kurang Mampu</p>
+            <p>Daftar Akun Sistem Pendukung Kepututsan Penerimaa PIP Jalur Afirmasi</p>
         </div>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -27,6 +27,17 @@
 
                 <x-input id="nis" class="block mt-1 w-full" type="text" name="nis" :value="old('nis')"
                     required />
+            </div>
+            <div class="mt-4">
+                <x-label for="kelas_id" :value="__('Kelas')" />
+
+                <select id="kelas_id" class="block mt-1 w-full" type="text" name="kelas_id" :value="old('kelas_id')"
+                    required >
+                    <option value="" selected disabled>--Pilih Kelas--</option>
+                    @foreach ( $kelas as $k )
+                    <option value="{{ $k->id }}">{{ $k->tingkat }} - {{ $k->kelas }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mt-4">

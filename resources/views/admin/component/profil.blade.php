@@ -46,6 +46,7 @@
                                         <th>Gender</th>
                                         <th>Kelas</th>
                                         <th>TTL</th>
+                                        <th>Tahun Ajaran</th>
                                         <th>Nama Ayah</th>
                                         <th>Nama Ibu</th>
                                         <th>Alamat</th>
@@ -62,6 +63,7 @@
                                             <td>{{ $item->idKelas->tingkat }} {{ $item->idKelas->jurusan }}
                                                 {{ $item->idKelas->kelas }}</td>
                                             <td>{{ $item->tempat_lahir }}, {{ $item->tgl_lahir }}</td>
+                                            <td>{{ $item->idKelas->tahun_ajaran }}
                                             <td>{{ $item->nama_ayah }}</td>
                                             <td>{{ $item->nama_ibu }}</td>
                                             <td>{{ $item->alamat }}</td>

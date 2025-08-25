@@ -43,15 +43,18 @@
                                         <th>No.</th>
                                         <th>Tingkat</th>
                                         <th>Kelas</th>
+                                        <th>Tahun Ajaran</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $item)
+                                 @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->tingkat }}</td>
                                             <td>{{ $item->kelas }}</td>
+                                            <td>{{ $item->tahun_ajaran }}</td>
+                                            
                                             <td>
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-warning" data-toggle="modal"
@@ -99,6 +102,20 @@
                                                                 value="{{ $item->kelas }}" placeholder="Masukan kelas"
                                                                 required>
                                                         </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>Tahun Ajaran</label>
+                                                            <select name="tahun_ajaran" class="form-control" required>
+                                                                <option value="">-- Pilih Tahun Ajaran --</option>
+                                                                @foreach($tahunAjaran as $tahun)
+                                                                    <option value="{{ $tahun }}"
+                                                                        {{ $item->tahun_ajaran == $tahun ? 'selected' : '' }}>
+                                                                        {{ $tahun }}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                          </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer justify-content-between">

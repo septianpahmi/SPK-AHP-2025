@@ -14,15 +14,23 @@ class BeasiswaController extends Controller
         return view('admin.component.beasiswa', compact('data'));
     }
 
-    public function post(Request $request)
+   public function post(Request $request)
     {
-        $beasiswa = new Beasiswa();
-        $beasiswa->nama_beasiswa = $request->nama_beasiswa;
-        $beasiswa->ket = $request->ket;
-        $beasiswa->tahun = $request->tahun;
-        $beasiswa->save();
-        return redirect('/beasiswa')->with('success', 'Beasiswa berhasil dibuat');
+    $request->validate([
+        'nama_beasiswa' => 'required|string|max:255',
+        'ket' => 'nullable|string',
+        'tahun' => 'required|integer|min:2025'
+    ]);
+
+    Beasiswa::create([
+        'nama_beasiswa' => $request->nama_beasiswa,
+        'ket' => $request->ket,
+        'tahun' => $request->tahun,
+    ]);
+
+    return redirect('/beasiswa')->with('success', 'Beasiswa berhasil dibuat');
     }
+
     public function update(Request $request, $id)
     {
         $beasiswa = Beasiswa::find($id);

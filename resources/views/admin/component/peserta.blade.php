@@ -42,63 +42,68 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @foreach ($data as $item)
-                                        @if (
-                                            (Auth::user()->role == 'TU' && $item->status == 'Diproses') ||
-                                                (Auth::user()->role == 'TU' && $item->status == 'Lolos') ||
-                                                (Auth::user()->role == 'TU' && $item->status == 'Tidak Lolos'))
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->idSiswa->name }}</td>
-                                                <td>{{ $item->idKelas->tingkat }} {{ $item->idKelas->jurusan }}
-                                                    {{ $item->idKelas->kelas }}</td>
-                                                <td>{{ $item->idBeasiswa->nama_beasiswa }}</td>
-                                                <td>{{ $item->status }}</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a href="{{ route('peserta.detail', $item->id) }}"
-                                                            type="button" class="btn btn-info">
-                                                            <i class="fas fa-eye"></i>
-                                                        </a>
-                                                        <button url="{{ route('peserta.delete', $item->id) }}"
-                                                            type="button" class="btn btn-danger delete"
-                                                            data-id="{{ $item->id }}">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
+                               <tbody>
+    @foreach ($data as $item)
+        @if (
+            (Auth::user()->role == 'TU' && in_array($item->status, ['Diproses','Lolos','Tidak Lolos']))
+        )
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->siswa->name ?? '-' }}</td>
+                <td>
+                    {{ $item->kelas->tingkat ?? '-' }}
+                    {{ $item->kelas->jurusan ?? '' }}
+                    {{ $item->kelas->kelas ?? '' }}
+                </td>
+                <td>{{ $item->beasiswa->nama_beasiswa ?? '-' }}</td>
+                <td>{{ $item->status }}</td>
+                <td>
+                    <div class="btn-group">
+                        <a href="{{ route('peserta.detail', $item->id) }}"
+                            type="button" class="btn btn-info">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <button url="{{ route('peserta.delete', $item->id) }}"
+                            type="button" class="btn btn-danger delete"
+                            data-id="{{ $item->id }}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        @endif
+    @endforeach
 
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endif
-                                    @endforeach
-                                    @foreach ($data as $item)
-                                        @if (Auth::user()->role == 'komite')
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->idSiswa->name }}</td>
-                                                <td>{{ $item->idKelas->tingkat }} {{ $item->idKelas->jurusan }}
-                                                    {{ $item->idKelas->kelas }}</td>
-                                                <td>{{ $item->idBeasiswa->nama_beasiswa }}</td>
-                                                <td>{{ $item->status }}</td>
-                                                <td>
-                                                    <div class="btn-group">
-                                                        <a href="{{ route('peserta.detail', $item->id) }}"
-                                                            type="button" class="btn btn-info">
-                                                            <i class="fas fa-eye"></i>
-                                                        </a>
-                                                        <button url="{{ route('peserta.delete', $item->id) }}"
-                                                            type="button" class="btn btn-danger delete"
-                                                            data-id="{{ $item->id }}">
-                                                            <i class="fas fa-trash"></i>
-                                                        </button>
+    @foreach ($data as $item)
+        @if (Auth::user()->role == 'komite')
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->siswa->name ?? '-' }}</td>
+                <td>
+                    {{ $item->kelas->tingkat ?? '-' }}
+                    {{ $item->kelas->jurusan ?? '' }}
+                    {{ $item->kelas->kelas ?? '' }}
+                </td>
+                <td>{{ $item->beasiswa->nama_beasiswa ?? '-' }}</td>
+                <td>{{ $item->status }}</td>
+                <td>
+                    <div class="btn-group">
+                        <a href="{{ route('peserta.detail', $item->id) }}"
+                            type="button" class="btn btn-info">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <button url="{{ route('peserta.delete', $item->id) }}"
+                            type="button" class="btn btn-danger delete"
+                            data-id="{{ $item->id }}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        @endif
+    @endforeach
+</tbody>
 
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endif
-                                    @endforeach
-                                </tbody>
                             </table>
                         </div>
                         <!-- /.card -->

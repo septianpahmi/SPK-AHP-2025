@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <div class="flex items-center justify-center mb-4">
-            <img src="{{ asset('images/logo-sma.png') }}" style="height: 80px" class="h-8 w-auto" alt="">
+            <img src="{{ asset('images/lg.png') }}" style="height: 80px" class="h-8 w-auto" alt="">
         </div>
         <div class="text-center mb-4">
             <h1><b>MASUK</b></h1>

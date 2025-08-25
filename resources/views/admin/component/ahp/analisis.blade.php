@@ -67,14 +67,15 @@
                                             <td>
                                                 <select class="form-control" name="kpot">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
+                                                    <option value="2">Antara 1 dan 3 (Nilai = 2)</option>
                                                     <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
+                                                    <option value="4">Antara 3 dan 5 (Nilai = 4)</option>
                                                     <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+                                                    <option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+                                                    <option value="7">Sangat penting (Nilai = 7)</option>
+                                                    <option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+                                                    <option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Tanggungan</td>
@@ -84,14 +85,15 @@
                                             <td>
                                                 <select class="form-control" name="kpop">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Pekerjaan</td>
@@ -101,14 +103,15 @@
                                             <td>
                                                 <select class="form-control" name="kpoa">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Asset</td>
@@ -118,14 +121,15 @@
                                             <td>
                                                 <select class="form-control" name="ktop">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Penghasilan</td>
@@ -135,14 +139,15 @@
                                             <td>
                                                 <select class="form-control" name="ktopk">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Pekerjaan</td>
@@ -152,14 +157,15 @@
                                             <td>
                                                 <select class="form-control" name="ktoa">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Asset</td>
@@ -169,14 +175,15 @@
                                             <td>
                                                 <select class="form-control" name="kpkp">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Penghasilan</td>
@@ -186,14 +193,15 @@
                                             <td>
                                                 <select class="form-control" name="kpkt">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Tanggungan</td>
@@ -203,14 +211,15 @@
                                             <td>
                                                 <select class="form-control" name="kpka">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Asset</td>
@@ -220,14 +229,15 @@
                                             <td>
                                                 <select class="form-control" name="kapk">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Pekerjaan</td>
@@ -237,14 +247,15 @@
                                             <td>
                                                 <select class="form-control" name="kat">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Tanggungan</td>
@@ -254,14 +265,15 @@
                                             <td>
                                                 <select class="form-control" name="kap">
                                                     <option value="1">Sama Penting (Nilai = 1)</option>
-                                                    <option value="2">Nilai Berdekatan (Nilai = 2)</option>
-                                                    <option value="3">Sedikit lebih penting (Nilai = 3)</option>
-                                                    <option value="4">Sama Penting (Nilai = 4)</option>
-                                                    <option value="5">Cukup penting (Nilai = 5)</option>
-                                                    <option value="6">Sangat Penting (Nilai = 6)</option>
-                                                    <option value="7">Sangat Penting (Nilai = 7)</option>
-                                                    <option value="8">Nilai Berdekatan (Nilai = 8)</option>
-                                                    <option value="9">Extrem Penting (Nilai = 9)</option>
+<option value="2">Antara 1 dan 3 (Nilai = 2)</option>
+<option value="3">Sedikit lebih penting (Nilai = 3)</option>
+<option value="4">Antara 3 dan 5 (Nilai = 4)</option>
+<option value="5">Cukup penting (Nilai = 5)</option>
+<option value="6">Antara 5 dan 7 (Nilai = 6)</option>
+<option value="7">Sangat penting (Nilai = 7)</option>
+<option value="8">Antara 7 dan 9 (Nilai = 8)</option>
+<option value="9">Mutlak/ekstrem penting (Nilai = 9)</option>
+
                                                 </select>
                                             </td>
                                             <td>Penghasilan</td>

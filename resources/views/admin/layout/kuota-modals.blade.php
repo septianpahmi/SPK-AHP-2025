@@ -40,7 +40,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label>Kuota</label>
-                                <input type="number" class="form-control" name="kuota" placeholder="Masukan kuota"
+                                <input type="number" class="form-control" name="kuota" placeholder="Masukan kuota" min="1"
                                     required>
                             </div>
                         </div>

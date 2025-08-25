@@ -116,21 +116,16 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label>Pilih Tahun:</label>
-                                                            <div class="input-group date"
-                                                                id="reservationdateIni{{ $item->id }}"
-                                                                data-target-input="nearest">
-                                                                <input type="text" name="tahun"
-                                                                    class="form-control datetimepicker-input"
-                                                                    data-target="#reservationdateIni{{ $item->id }}"
-                                                                    value="{{ $item->tahun }}" />
-                                                                <div class="input-group-append"
-                                                                    data-target="#reservationdateIni{{ $item->id }}"
-                                                                    data-toggle="datetimepicker">
-                                                                    <div class="input-group-text"><i
-                                                                            class="fa fa-calendar"></i></div>
-                                                                </div>
-                                                            </div>
+                                                           <input type="number" 
+                                                                id="tahun" 
+                                                                name="tahun" 
+                                                                class="form-control" 
+                                                                min="2025" 
+                                                                required
+                                                                oninvalid="this.setCustomValidity('Tahun tidak boleh kurang dari 2025')" 
+                                                                oninput="this.setCustomValidity('')">
                                                         </div>
+                                                       
                                                     </div>
                                                     <div class="col-sm-12">
                                                         <div class="form-group">
@@ -164,5 +159,8 @@
             </div>
             <!-- /.container-fluid -->
     </section>
+
 </div>
 @include('admin.partial.footer')
+
+

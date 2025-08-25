@@ -20,6 +20,18 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
+                                <label>Tahun Ajaran</label>
+                               <select name="tahun_ajaran" class="form-control" required>
+                                    <option value="">-- Pilih Tahun Ajaran --</option>
+                                    @foreach(($tahunAjaran ?? []) as $tahun)
+                                        <option value="{{ $tahun }}">{{ $tahun }}</option>
+                                    @endforeach
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
                                 <label>Kelas</label>
                                 <input type="text" class="form-control" name="kelas" placeholder="Masukan kelas"
                                     required>
@@ -124,8 +136,11 @@
                             <div class="form-group">
                                 <label>Pilih Tahun:</label>
                                 <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                    <input type="text" name="tahun" class="form-control datetimepicker-input"
-                                        data-target="#reservationdate" />
+                                    <input type="number" name="tahun"  class="form-control datetimepicker-input"
+                                        data-target="#reservationdate"  min="2025" 
+                                        required
+                                        oninvalid="this.setCustomValidity('Tahun tidak boleh kurang dari 2025')" 
+                                        oninput="this.setCustomValidity('')">
                                     <div class="input-group-append" data-target="#reservationdate"
                                         data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>

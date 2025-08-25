@@ -45,19 +45,14 @@
                                         <div class="form-group">
                                             <label>NIS<code>*</code></label>
                                             <input type="text" value="{{ Auth::user()->nis }}" class="form-control"
-                                                name="nis" placeholder="Masukan NIS">
+                                                name="nis" placeholder="Masukan NIS" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Kelas<code>*</code></label>
-                                            <select class="form-control" name="id_kelas">
-                                                @foreach ($kelas as $kl)
-                                                    <option value="{{ $kl->id }}">
-                                                        {{ $kl->tingkat }} {{ $kl->jurusan }}
-                                                        {{ $kl->kelas }}</option>
-                                                @endforeach
-                                            </select>
+                                            <input type="text" value="{{ $kelas->tingkat }} - {{ $kelas->kelas }}" class="form-control"
+                                                name="kelas_id" placeholder="Masukan NIS" readonly>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">

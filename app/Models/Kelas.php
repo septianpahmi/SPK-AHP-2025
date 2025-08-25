@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kelas extends Model
 {
     use HasFactory;
-    protected $fillable = ['id', 'tingkat', 'jurusan', 'kelas'];
+    protected $fillable = ['id', 'tingkat', 'jurusan', 'kelas', 'tahun_ajaran'];
 
     public function beasiswa()
     {

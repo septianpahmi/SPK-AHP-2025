@@ -7,8 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link href="/images/logo-sma.png" rel="icon">
-    <link href="/images/logo-sma.png" rel="apple-touch-icon">
+    <link href="/images/lg.png" rel="icon">
+    <link href="/images/lg.png" rel="apple-touch-icon">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 

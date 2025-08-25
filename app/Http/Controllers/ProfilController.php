@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\DataSiswa;
 use App\Models\Kelas;
+use App\Models\KelaSiswa;
 use App\Models\Peserta;
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller
@@ -20,7 +22,9 @@ class ProfilController extends Controller
 
     public function store(Request $request, $id)
     {
-        $user = User::where('name', $request->nama)->first();
+        $userId = Auth::user()->id;
+        $kelas = KelaSiswa::where('user_id', $userId)->first();
+        // dd($kelas);
         $sktmname = null;
         if ($request->hasFile('sktm')) {
             $file = $request->file('sktm');
@@ -44,7 +48,7 @@ class ProfilController extends Controller
             !empty($request->tgl_lahir) &&
             !empty($request->nama_ayah) &&
             !empty($request->nama_ibu) &&
-            !empty($request->id_kelas);
+            !empty($kelas->kelas_id);
         $dataSiswa = [
             'nis' => $request->nis,
             'nama' => $request->nama,
@@ -54,12 +58,12 @@ class ProfilController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'nama_ayah' => $request->nama_ayah,
             'nama_ibu' => $request->nama_ibu,
-            'id_kelas' => $request->id_kelas,
-            'id_user' => $user->id,
+            'id_kelas' => $kelas->kelas_id,
+            'id_user' => $userId,
             'status' => $isCompleteSiswa ? 'Submit' : 'Draft',
         ];
         DataSiswa::updateOrCreate(
-            ['id_user' => $user->id],
+            ['id_user' => $userId],
             $dataSiswa
         );
         $isCompleteDaftar = !empty($request->pekerjaan) &&
@@ -71,8 +75,8 @@ class ProfilController extends Controller
 
         $daftar = [
             'id_beasiswa' => $id,
-            'id_siswa' => $user->id,
-            'id_kelas' => $request->id_kelas,
+            'id_siswa' => $userId,
+            'id_kelas' => $kelas->kelas_id,
             'pekerjaan' => $request->pekerjaan,
             'penghasilan' => $request->penghasilan,
             'tanggungan' => $request->tanggungan,
@@ -81,7 +85,8 @@ class ProfilController extends Controller
             'sktm' => $sktmname,
             'dok_lainnya' => $dokname,
         ];
-        Peserta::updateOrCreate(['id_siswa' => $user->id], $daftar);
+        Peserta::updateOrCreate(['id_siswa' => $userId], $daftar);
+        $user = User::find($userId);
         if ($isCompleteSiswa && $isCompleteDaftar) {
             $user->status = 'lengkap';
             $user->save();

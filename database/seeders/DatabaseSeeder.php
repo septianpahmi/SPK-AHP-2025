@@ -36,5 +36,9 @@ class DatabaseSeeder extends Seeder
             'password'  => bcrypt('12345678'),
             'aktivasi' => 'Aktif'
         ]);
+        $this->call(SiswaSeeder::class);
     }
+
+    
+
 }

@@ -120,7 +120,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>{{ $data->idBeasiswa->nama_beasiswa }}</td>
+                                            <td>{{ optional($data->idBeasiswa)->nama_beasiswa ?? '-'  }}</td>
                                             @if ($data->pekerjaan == 5)
                                                 <td>
                                                     Tidak Bekerja</td>

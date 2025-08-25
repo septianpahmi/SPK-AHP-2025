@@ -14,7 +14,7 @@ class KriteriaSeeder extends Seeder
      */
     public function run()
     {
-        foreach (['Penghasilaan', 'Tanggungan', 'Pekerjaan', 'Asset'] as $nama) {
+        foreach (['Penghasilan Orang Tua', 'Tanggungan Keluarga', 'Pekerjaan Orang Tua', 'Kepemilikan Asset'] as $nama) {
             Kriteria::create([
                 'nama_kriteria' => $nama
             ]);

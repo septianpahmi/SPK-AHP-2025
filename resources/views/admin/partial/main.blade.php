@@ -22,7 +22,7 @@
                 <div class="col-md-6">
                     <div class="info-box">
                         <div class="info-box-icon">
-                            <img src="images/logo-sma.png" alt="AdminLTE Logo" class="brand-image img-circle"
+                            <img src="images/lg.png" alt="AdminLTE Logo" class="brand-image img-circle"
                                 style="height: 50px;width: 50px">
                         </div>
                         <div class="info-box-content">
@@ -125,8 +125,8 @@
                             </div>
                             @foreach ($data as $item)
                                 <div class="card-body">
-                                    <h3><b>{{ $item->nama_beasiswa }}</b></h3>
-                                    {{ $item->ket }}
+                                    <h3><b>{{ $item->idBeasiswa->nama_beasiswa }}</b></h3>
+                                    {{ $item->idBeasiswa->ket }} 
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-right">

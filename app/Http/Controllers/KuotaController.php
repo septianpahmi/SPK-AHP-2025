@@ -19,35 +19,66 @@ class KuotaController extends Controller
 
     public function post(Request $request)
     {
-        $cek = Kuota::where('id_beasiswa', $request->id_beasiswa)->where('id_kelas', $request->id_kelas)->first();
+        // Validasi input
+        $request->validate([
+            'id_beasiswa' => 'required|exists:beasiswas,id',
+            'id_kelas' => 'required|exists:kelas,id',
+            'kuota' => 'required|integer|min:1',
+        ], [
+            'kuota.min' => 'Kuota minimal harus 1 (tidak boleh 0 atau minus).',
+        ]);
+
+        
+        $cek = Kuota::where('id_beasiswa', $request->id_beasiswa)
+                    ->where('id_kelas', $request->id_kelas)
+                    ->first();
         if ($cek) {
             return redirect('/kuota')->with('error', 'Kuota untuk kelas tersebut sudah ada.');
         }
+
+        // Simpan data
         $data = new Kuota();
         $data->id_beasiswa = $request->id_beasiswa;
         $data->id_kelas = $request->id_kelas;
         $data->kuota = $request->kuota;
         $data->save();
+
         return redirect('/kuota')->with('success', 'Data Berhasil ditambah');
     }
 
     public function update(Request $request, $id)
     {
-        $cek = Kuota::where('id_beasiswa', $request->id_beasiswa)->where('id_kelas', $request->id_kelas)->where('id', '!=', $id)->first();
+        // Validasi input
+        $request->validate([
+            'id_beasiswa' => 'required|exists:beasiswas,id',
+            'id_kelas' => 'required|exists:kelas,id',
+            'kuota' => 'required|integer|min:1',
+        ], [
+            'kuota.min' => 'Kuota minimal harus 1 (tidak boleh 0 atau minus).',
+        ]);
+
+        // Cek apakah sudah ada kuota untuk beasiswa & kelas tersebut (kecuali data ini sendiri)
+        $cek = Kuota::where('id_beasiswa', $request->id_beasiswa)
+                    ->where('id_kelas', $request->id_kelas)
+                    ->where('id', '!=', $id)
+                    ->first();
         if ($cek) {
             return redirect('/kuota')->with('error', 'Kuota untuk kelas tersebut sudah ada.');
         }
-        $data = Kuota::find($id);
+
+        // Update data
+        $data = Kuota::findOrFail($id);
         $data->id_beasiswa = $request->id_beasiswa;
         $data->id_kelas = $request->id_kelas;
         $data->kuota = $request->kuota;
         $data->save();
+
         return redirect('/kuota')->with('success', 'Data Berhasil diedit');
     }
 
     public function delete($id)
     {
-        $data = Kuota::find($id);
+        $data = Kuota::findOrFail($id);
         $data->delete();
         return redirect('/kuota')->with('success', 'Data Berhasil dihapus');
     }

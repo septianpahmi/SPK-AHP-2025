@@ -45,7 +45,7 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->idSiswa->name }}</td>
+                                            <td>{{ $item->siswa->name ?? '-' }}</td>
                                             <td><iframe src="/file/sktm/{{ $item->sktm }}" frameborder="0"
                                                     class="img-fluid mb-2" alt="black sample"></iframe><a
                                                     href="/file/sktm/{{ $item->sktm }}" type="button"
