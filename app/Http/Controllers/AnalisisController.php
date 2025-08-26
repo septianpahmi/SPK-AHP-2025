@@ -782,20 +782,42 @@ class AnalisisController extends Controller
             ->get()
             ->keyBy('id_kelas');
 
+        // $sudahDihitung = Hasil::pluck('id_siswa')->toArray();
+
+        // // Filter array datahargaarr dan data lain agar hanya siswa yang belum dihitung
+        // $datahargaarr = array_values(array_filter($datahargaarr, function ($item, $key) use ($tipe, $sudahDihitung) {
+        //     return !in_array($tipe[$key]->id_siswa, $sudahDihitung);
+        // }, ARRAY_FILTER_USE_BOTH));
 
         for ($i = 0; $i < sizeof($datahargaarr); $i++) {
             if (isset($tipe[$i], $penghasilant[$i], $tanggungant[$i], $pekerjaant[$i], $asset[$i], $hasiljumlah[$i])) {
-                Hasil::create([
-                    'id_siswa' => $tipe[$i]->id_siswa,
-                    'id_beasiswa' => $beasiswa[$i]->id_beasiswa,
-                    'id_peserta' => $idPes[$i],
-                    'id_kelas' => $kelas[$i]->id_kelas,
-                    'penghasilan' => $penghasilant[$i]->penghasilan,
-                    'tanggungan' => $tanggungant[$i]->tanggungan,
-                    'pekerjaan' => $pekerjaant[$i]->pekerjaan,
-                    'asset' => $asset[$i]->asset,
-                    'ahp' => $hasiljumlah[$i]
-                ]);
+                $isExist = Hasil::where('id_siswa', $tipe[$i]->id_siswa)->exists();
+
+                if (!$isExist) {
+                    // Jika belum ada, lakukan insert data
+                    Hasil::create([
+                        'id_siswa' => $tipe[$i]->id_siswa,
+                        'id_beasiswa' => $beasiswa[$i]->id_beasiswa,
+                        'id_peserta' => $idPes[$i],
+                        'id_kelas' => $kelas[$i]->id_kelas,
+                        'penghasilan' => $penghasilant[$i]->penghasilan,
+                        'tanggungan' => $tanggungant[$i]->tanggungan,
+                        'pekerjaan' => $pekerjaant[$i]->pekerjaan,
+                        'asset' => $asset[$i]->asset,
+                        'ahp' => $hasiljumlah[$i]
+                    ]);
+                }
+                // Hasil::create([
+                //     'id_siswa' => $tipe[$i]->id_siswa,
+                //     'id_beasiswa' => $beasiswa[$i]->id_beasiswa,
+                //     'id_peserta' => $idPes[$i],
+                //     'id_kelas' => $kelas[$i]->id_kelas,
+                //     'penghasilan' => $penghasilant[$i]->penghasilan,
+                //     'tanggungan' => $tanggungant[$i]->tanggungan,
+                //     'pekerjaan' => $pekerjaant[$i]->pekerjaan,
+                //     'asset' => $asset[$i]->asset,
+                //     'ahp' => $hasiljumlah[$i]
+                // ]);
 
                 foreach ($pesertaGroupedByKelas as $idKelas => $pesertaKelas) {
                     // Dapatkan kuota untuk kelas ini
@@ -824,10 +846,9 @@ class AnalisisController extends Controller
 
         $datahasil = Hasil::where('id_beasiswa', $id)->get();
 
-        $datamax = DB::table('hasils')
+        $datamax = Hasil::where('id_beasiswa', $id)
             ->orderBy('ahp', 'desc')
-            ->limit(1)
-            ->get();
+            ->first();
 
         return view('admin.component.ahp.hasil', [
             'data_hasil' => $datahasil,

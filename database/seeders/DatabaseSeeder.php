@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Database\Seeders\UserSeeder;
+use Database\Seeders\SiswaSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,31 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'name'      => 'Komite',
-            'email'     => 'komite@gmail.com',
-            'role'     => 'komite',
-            'password'  => bcrypt('12345678'),
-            'aktivasi' => 'Aktif'
-        ]);
-        $tatausaha = User::create([
-            'name'      => 'Tata Usaha',
-            'email'     => 'tatausaha@gmail.com',
-            'role'     => 'TU',
-            'password'  => bcrypt('12345678'),
-            'aktivasi' => 'Aktif'
 
+        $this->call([
+            UserSeeder::class,
+            SiswaSeeder::class,
+            KriteriaSeeder::class,
+            SubSeeder::class,
         ]);
-        $tatausaha = User::create([
-            'name'      => 'Kepala Sekolah',
-            'email'     => 'kepsek@gmail.com',
-            'role'     => 'kepsek',
-            'password'  => bcrypt('12345678'),
-            'aktivasi' => 'Aktif'
-        ]);
-        $this->call(SiswaSeeder::class);
     }
-
-    
-
 }
