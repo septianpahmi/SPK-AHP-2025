@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KelaSiswa;
 use App\Models\User;
+use App\Models\Kuota;
 use App\Models\Kelas;
 use App\Models\Peserta;
 use App\Models\Beasiswa;
@@ -21,51 +22,86 @@ class PesertaController extends Controller
         $data = Peserta::all();
         return view('admin.component.peserta', compact('data'));
     }
+public function pendaftaran($beasiswaId) 
+{
+    $user = Auth::user();
+    $kriteria = Kriteria::all();
+    $subkriteria = Subkriteria::all();
 
-    public function pendaftaran($id)
-    {
-        $user = Auth::user(); // ambil user login
-        $kriteria = Kriteria::all();
-        $subkriteria = Subkriteria::all();
-        $beasiswa = Beasiswa::find($id);
-        $kelaSiswa = KelaSiswa::where('user_id', $user->id)->first();
-        $kelas = Kelas::where('id', $kelaSiswa->kelas_id)->first();
-        $siswa = DataSiswa::where('id_user', $user->id)->first();
-
-        return view('admin.layout.pendaftaran', compact('kriteria', 'subkriteria', 'beasiswa', 'kelas', 'siswa'));
+    // ambil kelas user
+    $kelaSiswa = KelaSiswa::where('user_id', $user->id)->first();
+    if (!$kelaSiswa) {
+        return redirect()->back()->with('error', 'Data kelas Anda belum tersedia.');
     }
 
-    public function storePendaftaran(Request $request, $id)
-    {
-        $user = Auth::user();
-        $kelas = KelaSiswa::where('user_id', $user->id)->first();
+    $userKelasId = $kelaSiswa->kelas_id;
 
-        // validasi supaya 1 user tidak bisa daftar beasiswa yang sama 2x
-        $cek = Peserta::where('id_siswa', $user->id)
-                      ->where('id_beasiswa', $id)
-                      ->first();
+    // ambil info beasiswa & kelas user, tetap tampilkan form meski kuota belum ada
+    $beasiswa = Beasiswa::find($beasiswaId);
+    $kelas = Kelas::find($userKelasId);
 
-        if ($cek) {
-            return redirect()->back()->with('error', 'Anda sudah mendaftar beasiswa ini.');
+    // ambil data siswa
+    $siswa = DataSiswa::where('id_user', $user->id)->first();
+
+    return view('admin.layout.pendaftaran', compact('kriteria', 'subkriteria', 'beasiswa', 'kelas', 'siswa'));
+}
+
+public function storePendaftaran(Request $request, $beasiswaId)
+{
+    $user = Auth::user();
+
+    // ambil kelas user
+    $kelaSiswa = KelaSiswa::where('user_id', $user->id)->first();
+    if (!$kelaSiswa) {
+        return redirect()->back()->with('error', 'Data kelas Anda belum tersedia.');
+    }
+    $userKelasId = $kelaSiswa->kelas_id;
+
+    // ambil kuota untuk kelas user
+    $kuota = Kuota::where('id_beasiswa', $beasiswaId)
+                  ->where('id_kelas', $userKelasId)
+                  ->first();
+
+    // cek user sudah daftar atau belum
+    $cek = Peserta::where('id_siswa', $user->id)
+                  ->where('id_beasiswa', $beasiswaId)
+                  ->first();
+
+    if ($cek) {
+        return redirect()->back()->with('error', 'Anda sudah mendaftar beasiswa ini.');
+    }
+
+    // cek kuota tersisa
+    if ($kuota) {
+        $jumlahPeserta = Peserta::where('id_beasiswa', $beasiswaId)
+                                ->where('id_kelas', $userKelasId)
+                                ->count();
+
+        if ($jumlahPeserta >= $kuota->kuota) {
+            return redirect()->back()->with('error', 'Kuota untuk kelas Anda sudah penuh.');
         }
-
-        // simpan data peserta (nis tetap diambil dari tabel user, bukan dari request)
-        Peserta::create([
-            'id_siswa'   => $user->id,
-            'id_beasiswa'=> $id,
-            'id_kelas'   => $kelas->kelas_id,
-            'penghasilan'=> $request->penghasilan,
-            'tanggungan' => $request->tanggungan,
-            'pekerjaan'  => $request->pekerjaan,
-            'asset'      => $request->asset,
-            'sktm'       => $request->sktm,
-            'dok_lainnya'=> $request->dok_lainnya,
-            'status'     => 'Mendaftar',
-        ]);
-
-        return redirect('/peserta')->with('success', 'Pendaftaran berhasil, data anda sedang diproses.');
     }
 
+    // handle upload file
+    $sktmPath = $request->file('sktm') ? $request->file('sktm')->store('uploads/sktm', 'public') : null;
+    $docLainnyaPath = $request->file('dok_lainnya') ? $request->file('dok_lainnya')->store('uploads/dokumen', 'public') : null;
+
+    // simpan data peserta
+    Peserta::create([
+        'id_siswa'    => $user->id,
+        'id_beasiswa' => $beasiswaId,
+        'id_kelas'    => $userKelasId,
+        'penghasilan' => $request->penghasilan,
+        'tanggungan'  => $request->tanggungan,
+        'pekerjaan'   => $request->pekerjaan,
+        'asset'       => $request->asset,
+        'sktm'        => $sktmPath,
+        'dok_lainnya' => $docLainnyaPath,
+        'status'      => 'Mendaftar',
+    ]);
+
+    return redirect('/peserta')->with('success', 'Pendaftaran berhasil, data Anda sedang diproses.');
+}
     public function approve($id)
     {
         $data = Peserta::find($id);

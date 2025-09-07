@@ -51,9 +51,9 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->idBeasiswa->nama_beasiswa }}</td>
-                                            <td>{{ $item->idKelas->tingkat }} {{ $item->idKelas->jurusan }}
-                                                {{ $item->idKelas->kelas }}</td>
+                                            <td>{{ optional($item->Beasiswa)->nama_beasiswa ?? 'tidak ada beasiswa' }}</td>
+                                            <td>{{ optional($item->Kelas)->tingkat ?? '-' }} {{ optional( $item->Kelas)->jurusan ?? '-' }}
+                                                {{ optional($item->Kelas)->kelas  ?? '-'}}</td>
                                             <td>{{ $item->kuota }}</td>
                                             <td>
                                                 <div class="btn-group">

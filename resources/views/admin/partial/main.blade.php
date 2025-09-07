@@ -125,8 +125,8 @@
                             </div>
                             @foreach ($data as $item)
                                 <div class="card-body">
-                                    <h3><b>{{ $item->idBeasiswa->nama_beasiswa }}</b></h3>
-                                    {{ $item->idBeasiswa->ket }} 
+                                  <h3><b>{{ $item->beasiswa?->nama_beasiswa ?? 'Beasiswa tidak ditemukan' }}</b></h3>
+{{ $item->beasiswa?->ket ?? '' }}
                                 </div>
                                 <div class="card-footer">
                                     <div class="text-right">
